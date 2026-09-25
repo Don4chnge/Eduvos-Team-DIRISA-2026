@@ -88,7 +88,7 @@ To rebuild the dashboard after editing `dashboard/src/template.html`, run `pytho
 |Name|Role|
 |-|-|
 |*Thabang Manyama*|*Deployment \& Building machine learning models*|
-|*Kamogelo Morweng*|*Building machine learning models \& Exploratory data analysis*|
+|*Kamogelo Morweng*|*Building machine learning models \& Deployment*|
 |*Ndodzo Sididzha*|*Data collection*|
 |*Zwayi Mbokane*|*Data Cleaning*|
 |*Katlego Bopape*|*Data Cleaning \& Building machine learning models*|
