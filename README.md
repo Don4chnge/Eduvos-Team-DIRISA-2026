@@ -1,6 +1,6 @@
 # Hung Council Watch: Forecasting Coalition Risk in South Africa's 2026 Local Elections
 
-**DIRISA Student Datathon Challenge 2026 — Team Eduvos**
+**DIRISA Student Datathon Challenge 2026 - Team Eduvos**
 
 **Live dashboard:** https://eduvos-hung-councils.netlify.app
 (includes an election-day simulator; also runs offline: open `docs/index.html` in any browser)
