@@ -1,0 +1,6 @@
+election(s),issue,rows affected,action
+"2000, 2006",District Management Areas (parks/reserves),114,Dropped
+2006,Misaligned row: text in ballot column,1,Dropped
+2006,Impossible turnout (≤0% or >100%),35,Turnout set to missing
+"2000, 2006, 2011",Same party under different names,1317,Names harmonised
+2016,Column is not turnout (implied denominator 1.79× 2011's): it is the leading party's votes ÷ registered voters (see 01_cleaning_2016),3735,Turnout set to missing

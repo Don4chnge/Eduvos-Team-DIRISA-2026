@@ -1,0 +1,1135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hung council watch: South Africa 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script>
+  // The dashboard is designed dark-first; a viewer's explicit theme setting still wins.
+  (function () {
+    var root = document.documentElement, saved = null;
+    try { saved = localStorage.getItem("hcw-theme"); } catch (e) {}
+    if (!root.hasAttribute("data-theme")) root.setAttribute("data-theme", saved || "dark");
+  })();
+</script>
+<style>
+:root {
+  --bg: #EDF1F2; --surface: #FFFFFF; --surface-2: #F4F7F8; --line: #D3DCE0; --line-strong: #B9C6CC;
+  --text: #0E1A22; --muted: #52707C; --accent: #9A6A12; --accent-ink: #FFFFFF;
+  --r0: #D3E2E5; --r1: #79A5AF; --r2: #D6AE5E; --r3: #E2733A; --r4: #CF3526;
+  --map-edge: #FFFFFF; --prov-edge: rgba(14, 26, 34, 0.55); --nodata: #E3E9EB;
+  --shadow: 0 1px 0 rgba(14, 26, 34, 0.04);
+  --safe: #2E6D7C; --battle: #9A6A12; --hung: #C0392B;
+  --sans: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --serif: "Newsreader", Georgia, "Times New Roman", serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0C161D; --surface: #111F28; --surface-2: #162833; --line: #1F3441; --line-strong: #2C4655;
+    --text: #E4ECEF; --muted: #8AA1AC; --accent: #E9C46A; --accent-ink: #0C161D;
+    --r0: #1B3340; --r1: #2E6373; --r2: #C8A45C; --r3: #EE7D3F; --r4: #FF4B38;
+    --map-edge: #0C161D; --prov-edge: rgba(228, 236, 239, 0.45); --nodata: #15252F;
+    --shadow: none;
+    --safe: #6FB3C2; --battle: #E9C46A; --hung: #FF6B57;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0C161D; --surface: #111F28; --surface-2: #162833; --line: #1F3441; --line-strong: #2C4655;
+  --text: #E4ECEF; --muted: #8AA1AC; --accent: #E9C46A; --accent-ink: #0C161D;
+  --r0: #1B3340; --r1: #2E6373; --r2: #C8A45C; --r3: #EE7D3F; --r4: #FF4B38;
+  --map-edge: #0C161D; --prov-edge: rgba(228, 236, 239, 0.45); --nodata: #15252F;
+  --shadow: none;
+  --safe: #6FB3C2; --battle: #E9C46A; --hung: #FF6B57;
+}
+:root { box-sizing: border-box; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+*, *::before, *::after { box-sizing: inherit; }
+html { scroll-padding-top: env(safe-area-inset-top, 0px); background: var(--bg); }
+body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 15px; line-height: 1.45;
+  -webkit-font-smoothing: antialiased; }
+/* No tabular figures: in this font they also widen commas and full stops ("60 . 2%"). */
+button, input, select { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+h1, h2, h3 { margin: 0; font-weight: 700; letter-spacing: -0.01em; }
+p { margin: 0; }
+
+/* Header */
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--bg);
+  border-bottom: 1px solid var(--line); display: grid; grid-template-columns: auto 1fr auto; gap: 24px; align-items: center;
+  padding: 14px clamp(16px, 3vw, 32px); }
+.brand h1 { font-size: 1.35rem; font-weight: 800; letter-spacing: -0.02em; }
+.brand p { font-family: var(--serif); font-size: 0.98rem; color: var(--muted); }
+.tabs { display: flex; gap: 4px; justify-self: center; background: var(--surface); border: 1px solid var(--line);
+  border-radius: 999px; padding: 4px; overflow-x: auto; max-width: 100%; }
+.tabs button { border: 0; background: transparent; padding: 7px 14px; border-radius: 999px; cursor: pointer; white-space: nowrap;
+  color: var(--muted); font-weight: 600; font-size: 0.92rem; }
+.tabs button[aria-selected="true"] { background: var(--text); color: var(--bg); }
+.icon-btn { border: 1px solid var(--line); background: var(--surface); width: 38px; height: 38px; border-radius: 50%;
+  cursor: pointer; display: grid; place-items: center; }
+.icon-btn svg { width: 18px; height: 18px; }
+
+main { padding: 20px clamp(16px, 3vw, 32px) 28px; max-width: 1560px; margin: 0 auto; }
+.view { display: none; }
+.view.active { display: block; }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px; box-shadow: var(--shadow); min-width: 0; }
+.panel h2 { font-size: 1.02rem; }
+.panel .sub { color: var(--muted); font-size: 0.88rem; margin-top: 2px; }
+
+/* Forecast layout */
+.forecast-grid { display: grid; grid-template-columns: 300px minmax(0, 1fr) 340px; gap: 16px; align-items: stretch; }
+.controls { display: flex; flex-direction: column; gap: 16px; }
+.score { padding: 20px 18px 18px; }
+.score .big { font-size: clamp(3.6rem, 6vw, 5.2rem); font-weight: 800; line-height: 0.95; letter-spacing: -0.04em; }
+.score .what { font-size: 1.02rem; font-weight: 600; margin-top: 6px; }
+.score .delta { font-family: var(--serif); color: var(--muted); margin-top: 6px; font-size: 0.98rem; }
+.swing label { display: block; font-weight: 600; }
+.swing .row { display: flex; align-items: baseline; justify-content: space-between; margin-top: 10px; }
+.swing output { font-size: 1.6rem; font-weight: 800; letter-spacing: -0.02em; white-space: nowrap; flex: none; }
+.swing .row .sub { margin: 0; }
+.swing .hint { color: var(--muted); font-size: 0.86rem; margin-top: 8px; }
+.swing .quick { display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; }
+.chip-btn { border: 1px solid var(--line-strong); background: transparent; border-radius: 999px; padding: 5px 11px; cursor: pointer;
+  font-size: 0.84rem; font-weight: 600; }
+.chip-btn[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+input[type="range"] { width: 100%; accent-color: var(--accent); margin-top: 6px; height: 28px; }
+.kpis { display: grid; grid-template-columns: 1fr; gap: 0; margin: 0; }
+.kpis div { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 10px 0; border-top: 1px solid var(--line); }
+.kpis div:first-child { border-top: 0; padding-top: 0; }
+.kpis dt { color: var(--muted); font-size: 0.9rem; }
+.kpis dd { margin: 0; font-weight: 700; font-size: 1.25rem; }
+.find { display: grid; gap: 10px; }
+.find label { font-size: 0.86rem; color: var(--muted); display: grid; gap: 4px; }
+.find select, .find input { background: var(--surface-2); border: 1px solid var(--line); border-radius: 10px; padding: 9px 10px; width: 100%; }
+
+.mapwrap { position: relative; padding: 0; overflow: hidden; display: flex; flex-direction: column; }
+.map-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; padding: 16px 18px 0; }
+.map-head .sub { max-width: 46ch; }
+.map-box { position: relative; flex: 1; min-height: 420px; }
+.map-box svg { width: 100%; height: 100%; display: block; cursor: grab; overflow: hidden; }
+.map-box svg:active { cursor: grabbing; }
+.muni { stroke: var(--map-edge); stroke-width: 0.5; vector-effect: non-scaling-stroke; cursor: pointer; }
+.muni.dim { opacity: 0.28; }
+.muni.sel { stroke: var(--text); stroke-width: 2.2; }
+.prov { fill: none; stroke: var(--prov-edge); stroke-width: 1; vector-effect: non-scaling-stroke; pointer-events: none; }
+.legend { position: absolute; left: 16px; bottom: 14px; background: color-mix(in srgb, var(--surface) 88%, transparent);
+  border: 1px solid var(--line); border-radius: 10px; padding: 8px 10px; font-size: 0.8rem; }
+.legend .bar { width: 190px; height: 10px; border-radius: 3px; margin: 6px 0 3px; }
+.legend .ticks { display: flex; justify-content: space-between; color: var(--muted); }
+.reset { position: absolute; right: 14px; bottom: 14px; }
+
+.tooltip { position: fixed; z-index: 50; pointer-events: none; background: var(--surface); border: 1px solid var(--line-strong);
+  border-radius: 10px; padding: 8px 10px; font-size: 0.86rem; min-width: 180px; opacity: 0; transition: opacity 0.12s; }
+.tooltip strong { display: block; font-size: 0.95rem; }
+.tooltip .t-muted { color: var(--muted); }
+
+/* Detail panel */
+.detail { display: flex; flex-direction: column; gap: 14px; }
+.detail .where { color: var(--muted); font-size: 0.9rem; }
+.detail h2 { font-size: 1.45rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; }
+.tag { display: inline-block; border: 1px solid var(--line-strong); border-radius: 6px; padding: 0 6px; font-size: 0.78rem; margin-left: 6px; vertical-align: 2px; }
+.leader { display: flex; align-items: center; gap: 8px; font-family: var(--serif); font-size: 1.02rem; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex: none; }
+.meter .val { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.03em; line-height: 1; }
+.meter .lab { color: var(--muted); font-size: 0.9rem; }
+.meter .track { height: 8px; border-radius: 4px; background: var(--surface-2); margin-top: 10px; overflow: hidden; }
+.meter .fill { height: 100%; border-radius: 4px; transition: width 0.35s ease, background-color 0.35s ease; }
+.facts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 14px; margin: 0; }
+.facts dt { color: var(--muted); font-size: 0.82rem; }
+.facts dd { margin: 0; font-weight: 700; }
+.pills { display: flex; gap: 4px; }
+.pill { flex: 1; text-align: center; font-size: 0.72rem; padding: 5px 0 4px; border-radius: 6px; color: #0C161D; font-weight: 600; }
+.pill span { display: block; font-weight: 800; font-size: 0.8rem; }
+.pill.none { background: var(--surface-2); color: var(--muted); }
+.small-note { color: var(--muted); font-size: 0.8rem; font-family: var(--serif); }
+
+/* Lower row */
+.lower { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 16px; margin-top: 16px; }
+.watch { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.9rem; }
+.watch th { text-align: left; color: var(--muted); font-weight: 500; font-size: 0.8rem; padding: 6px 8px; border-bottom: 1px solid var(--line); }
+.watch td { padding: 7px 8px; border-bottom: 1px solid var(--line); vertical-align: middle; }
+.watch tr:last-child td { border-bottom: 0; }
+.watch button.link { background: none; border: 0; padding: 0; cursor: pointer; font-weight: 600; text-align: left; }
+.watch button.link:hover { text-decoration: underline; }
+.mini { display: flex; align-items: center; gap: 8px; }
+.mini .track { flex: 1; height: 6px; background: var(--surface-2); border-radius: 3px; min-width: 60px; }
+.mini .fill { height: 100%; border-radius: 3px; }
+.table-scroll { overflow-x: auto; }
+.chart text { fill: var(--muted); font-size: 11px; font-family: var(--sans); }
+.chart .lbl { fill: var(--text); font-size: 12px; }
+.chart .axis line, .chart .axis path { stroke: var(--line-strong); }
+.chart .grid line { stroke: var(--line); }
+.clickable { cursor: pointer; }
+
+/* Trends */
+.trends-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 16px; }
+.years { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+.years button.y { border: 1px solid var(--line-strong); background: transparent; border-radius: 8px; padding: 6px 12px; cursor: pointer; font-weight: 700; }
+.years button.y[aria-pressed="true"] { background: var(--text); color: var(--bg); border-color: var(--text); }
+.play { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--accent); color: var(--accent); background: transparent;
+  border-radius: 8px; padding: 6px 12px; cursor: pointer; font-weight: 700; }
+.play svg { width: 14px; height: 14px; }
+.regime-key { display: flex; gap: 14px; flex-wrap: wrap; font-size: 0.84rem; color: var(--muted); margin-top: 10px; }
+.regime-key span { display: inline-flex; align-items: center; gap: 6px; }
+.regime-key i { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+.stack { display: flex; flex-direction: column; gap: 16px; }
+.prose { font-family: var(--serif); font-size: 1.04rem; line-height: 1.6; max-width: 68ch; }
+.prose p + p { margin-top: 0.8em; }
+.big-year { font-size: 3rem; font-weight: 800; letter-spacing: -0.04em; line-height: 1; }
+
+/* Model */
+.stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.stat .n { font-size: 2.6rem; font-weight: 800; letter-spacing: -0.03em; line-height: 1; }
+.stat .t { font-family: var(--serif); color: var(--muted); margin-top: 6px; }
+.model-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; margin-top: 16px; }
+.vtable { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin-top: 12px; }
+.vtable th, .vtable td { padding: 8px; border-bottom: 1px solid var(--line); text-align: right; }
+.vtable th:first-child, .vtable td:first-child { text-align: left; }
+.vtable th { color: var(--muted); font-weight: 500; font-size: 0.8rem; }
+.vtable tr.chosen td { font-weight: 700; }
+.vtable tr.chosen td:first-child::after { content: "chosen"; font-size: 0.72rem; font-weight: 700; background: var(--accent); color: var(--accent-ink);
+  border-radius: 5px; padding: 1px 6px; margin-left: 8px; vertical-align: 1px; }
+.key { display: flex; gap: 14px; flex-wrap: wrap; font-size: 0.82rem; color: var(--muted); margin-top: 8px; }
+.key span { display: inline-flex; align-items: center; gap: 6px; }
+.key i { width: 16px; height: 3px; display: inline-block; border-radius: 2px; }
+
+/* Data & method */
+.steps { list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 0; counter-reset: s; }
+.steps li { display: grid; grid-template-columns: 36px 1fr; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line); counter-increment: s; }
+.steps li::before { content: counter(s); font-weight: 800; font-size: 1.2rem; color: var(--accent); }
+.steps b { display: block; }
+.steps span { color: var(--muted); font-family: var(--serif); }
+.data-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 16px; }
+.plain { margin: 10px 0 0; padding-left: 18px; font-family: var(--serif); line-height: 1.6; }
+.plain li + li { margin-top: 6px; }
+
+/* Election-day simulator */
+.sim-grid { display: grid; grid-template-columns: 380px minmax(0, 1fr); gap: 16px; align-items: start; }
+.field { display: grid; gap: 6px; font-size: 0.86rem; color: var(--muted); margin-top: 14px; }
+.field select { background: var(--surface-2); border: 1px solid var(--line); border-radius: 10px; padding: 10px; width: 100%; font-size: 1rem; }
+.ctl-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.ctl-head label { font-weight: 600; }
+.ctl-head output { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.02em; white-space: nowrap; }
+.scale { display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--muted); }
+.verdict { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: end; }
+.verdict .label { font-size: 0.9rem; color: var(--muted); }
+.verdict .word { font-size: clamp(2.6rem, 5vw, 4rem); font-weight: 800; letter-spacing: -0.04em; line-height: 1; margin-top: 4px; transition: color 0.3s; }
+.verdict .why { font-family: var(--serif); color: var(--muted); margin-top: 10px; max-width: 56ch; font-size: 1.02rem; }
+.verdict .risk { text-align: right; }
+.verdict .risk .n { font-size: 2.6rem; font-weight: 800; letter-spacing: -0.03em; line-height: 1; }
+.verdict .risk .d { color: var(--muted); font-size: 0.9rem; margin-top: 4px; }
+.steps-sim { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 12px 0 0; }
+.steps-sim div { padding: 4px 14px; border-left: 1px solid var(--line); }
+.steps-sim div:first-child { border-left: 0; padding-left: 0; }
+.steps-sim dt { color: var(--muted); font-size: 0.8rem; }
+.steps-sim dd { margin: 2px 0 0; font-weight: 800; font-size: 1.3rem; }
+.counts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: 12px; }
+.counts .c { border-top: 3px solid var(--line-strong); padding-top: 8px; }
+.counts .c b { display: block; font-size: 1.9rem; font-weight: 800; letter-spacing: -0.03em; }
+.counts .c span { color: var(--muted); font-size: 0.85rem; }
+
+/* Ticker */
+.ticker { position: sticky; bottom: 0; z-index: 15; background: var(--surface); border-top: 1px solid var(--line);
+  display: flex; align-items: center; gap: 14px; padding: 9px clamp(16px, 3vw, 32px); padding-bottom: calc(9px + env(safe-area-inset-bottom, 0px));
+  overflow: hidden; font-size: 0.88rem; }
+.ticker .live { display: inline-flex; align-items: center; gap: 6px; font-weight: 700; flex: none; }
+.ticker .live i { width: 8px; height: 8px; border-radius: 50%; background: var(--r4); animation: pulse 2s ease-in-out infinite; }
+.ticker .track { overflow: hidden; flex: 1; mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); }
+.ticker .run { display: inline-flex; gap: 48px; white-space: nowrap; animation: run 110s linear infinite; }
+.ticker:hover .run { animation-play-state: paused; }
+.ticker .run b { font-weight: 700; }
+@keyframes run { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+@media (prefers-reduced-motion: reduce) {
+  .ticker .run { animation: none; }
+  .ticker .live i { animation: none; }
+  .meter .fill { transition: none; }
+}
+
+@media (max-width: 1240px) {
+  .forecast-grid { grid-template-columns: 280px minmax(0, 1fr); }
+  .detail { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 900px) {
+  .top { grid-template-columns: 1fr auto; }
+  .tabs { grid-column: 1 / -1; grid-row: 2; justify-self: stretch; }
+  .forecast-grid, .lower, .trends-grid, .model-grid, .data-grid { grid-template-columns: minmax(0, 1fr); }
+  .detail { grid-template-columns: minmax(0, 1fr); }
+  .stats { grid-template-columns: minmax(0, 1fr); }
+  .sim-grid { grid-template-columns: minmax(0, 1fr); }
+  .steps-sim, .counts { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 12px; }
+  .steps-sim div:nth-child(3) { border-left: 0; padding-left: 0; }
+  .verdict { grid-template-columns: minmax(0, 1fr); }
+  .verdict .risk { text-align: left; }
+  .map-box { min-height: 340px; }
+  .legend { left: 10px; bottom: 10px; padding: 6px 8px; }
+  .legend .bar { width: 130px; }
+  .reset { top: 10px; right: 10px; bottom: auto; }
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <h1>Hung council watch</h1>
+    <p>Which councils could lose their majority on 4 November 2026?</p>
+  </div>
+  <nav class="tabs" role="tablist" aria-label="Dashboard sections">
+    <button role="tab" aria-selected="true" aria-controls="v-forecast" data-view="v-forecast">2026 forecast</button>
+    <button role="tab" aria-selected="false" aria-controls="v-sim" data-view="v-sim">Election-day simulator</button>
+    <button role="tab" aria-selected="false" aria-controls="v-trends" data-view="v-trends">How we got here</button>
+    <button role="tab" aria-selected="false" aria-controls="v-model" data-view="v-model">The model</button>
+    <button role="tab" aria-selected="false" aria-controls="v-data" data-view="v-data">Data and method</button>
+  </nav>
+  <button class="icon-btn" id="themeBtn" aria-label="Switch between dark and light">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg>
+  </button>
+</header>
+
+<main>
+  <!-- ======================= 2026 FORECAST ======================= -->
+  <section class="view active" id="v-forecast" role="tabpanel">
+    <div class="forecast-grid">
+      <div class="controls">
+        <div class="panel score">
+          <div class="big" id="kExpected">0</div>
+          <div class="what" id="kExpectedLabel">councils expected to be hung</div>
+          <div class="delta" id="kDelta"></div>
+        </div>
+        <div class="panel swing">
+          <label for="swing">What if leading parties lose more support?</label>
+          <div class="row"><span class="sub">Points lost by every leading party</span><output id="swingOut" for="swing">0</output></div>
+          <input type="range" id="swing" min="0" max="15" step="0.5" value="0">
+          <div class="quick">
+            <button class="chip-btn" data-swing="0" aria-pressed="true">No change</button>
+            <button class="chip-btn" data-swing="6.8" aria-pressed="false">Repeat of 2021</button>
+            <button class="chip-btn" data-swing="12" aria-pressed="false">Severe</button>
+          </div>
+          <p class="hint">Between 2016 and 2021, the leading party's share fell by a median of 6.8 points.</p>
+        </div>
+        <div class="panel">
+          <dl class="kpis">
+            <div><dt>Likely hung (risk 50% or more)</dt><dd id="kHigh">0</dd></div>
+            <div><dt>Majority councils with a 1-in-3 risk or higher</dt><dd id="kFlip">0</dd></div>
+            <div><dt>Hung after the 2021 election</dt><dd id="kNow">0</dd></div>
+          </dl>
+        </div>
+        <div class="panel find">
+          <label>Province
+            <select id="provSel"></select>
+          </label>
+          <label>Find a municipality
+            <input id="search" list="muniList" placeholder="Type a name, e.g. Mangaung" autocomplete="off">
+          </label>
+          <datalist id="muniList"></datalist>
+        </div>
+      </div>
+
+      <div class="panel mapwrap">
+        <div class="map-head">
+          <div>
+            <h2>Risk of a hung council in 2026</h2>
+            <p class="sub">Every local and metro municipality, coloured by the model's predicted chance that no party wins a majority. Click a municipality for details; scroll or pinch to zoom.</p>
+          </div>
+        </div>
+        <div class="map-box" id="mapBox">
+          <svg id="map" role="img" aria-label="Map of South African municipalities coloured by risk of a hung council"></svg>
+          <div class="legend">
+            <div>Chance of a hung council</div>
+            <div class="bar" id="legendBar"></div>
+            <div class="ticks"><span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div>
+          </div>
+          <button class="chip-btn reset" id="resetZoom">Show all of South Africa</button>
+        </div>
+      </div>
+
+      <aside class="panel detail" id="detail" aria-live="polite"></aside>
+    </div>
+
+    <div class="lower">
+      <div class="panel">
+        <h2>Average risk by province</h2>
+        <p class="sub">Click a province to focus the map on it.</p>
+        <svg id="provBars" class="chart" width="100%"></svg>
+      </div>
+      <div class="panel">
+        <h2>Watch list</h2>
+        <p class="sub" id="watchSub">Councils that kept a majority in 2021 but are closest to losing it.</p>
+        <div class="table-scroll"><table class="watch" id="watch"></table></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= ELECTION-DAY SIMULATOR ======================= -->
+  <section class="view" id="v-sim" role="tabpanel">
+    <div class="sim-grid">
+      <div class="stack">
+        <div class="panel">
+          <h2>Election-day simulator</h2>
+          <p class="sub">Pick a council and test what happens if the vote shifts on 4 November 2026. The risk is recalculated live with the same model as the forecast.</p>
+          <label class="field">Municipality
+            <select id="simSel"></select>
+          </label>
+        </div>
+        <div class="panel">
+          <div class="ctl-head"><label for="simPts">Leading party's vote on the day</label><output id="simPtsOut" for="simPts">±0 pts</output></div>
+          <input type="range" id="simPts" min="-15" max="15" step="0.5" value="0">
+          <div class="scale"><span>Loses 15 points</span><span>No change</span><span>Gains 15 points</span></div>
+        </div>
+        <div class="panel">
+          <div class="ctl-head"><label for="simTurn">Turnout of its supporters, compared with other voters</label><output id="simTurnOut" for="simTurn">0%</output></div>
+          <input type="range" id="simTurn" min="-30" max="30" step="1" value="0">
+          <div class="scale"><span>30% lower</span><span>Same</span><span>30% higher</span></div>
+          <p class="hint" style="color:var(--muted);font-size:0.86rem;margin-top:8px">A council can flip when one party's voters stay home, even if overall turnout looks normal. This converts that difference into a change in vote share.</p>
+        </div>
+        <div class="panel">
+          <div class="sub" style="margin-bottom:8px">Try a scenario</div>
+          <div class="quick" id="simPresets">
+            <button class="chip-btn" data-pts="0" data-turn="0">Reset</button>
+            <button class="chip-btn" data-pts="-6.8" data-turn="0">Repeat of 2021</button>
+            <button class="chip-btn" data-pts="0" data-turn="-15">Supporters stay home</button>
+            <button class="chip-btn" data-pts="0" data-turn="15">Supporters surge</button>
+            <button class="chip-btn" data-pts="-3" data-turn="-10">Bad day</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="stack">
+        <div class="panel" aria-live="polite">
+          <div class="verdict">
+            <div>
+              <div class="label" id="simWhere"></div>
+              <div class="word" id="simWord">Safe</div>
+              <p class="why" id="simWhy"></p>
+            </div>
+            <div class="risk"><div class="n" id="simRisk">0%</div><div class="d" id="simRiskD">chance of a hung council</div></div>
+          </div>
+        </div>
+        <div class="panel">
+          <h2>Where the leading party lands</h2>
+          <p class="sub">Its share of the PR vote: 2021 result and your scenario, against the model's Safe, Battleground and Likely hung zones.</p>
+          <svg id="simBar" class="chart" width="100%" height="128"></svg>
+          <dl class="steps-sim">
+            <div><dt>2021 result</dt><dd id="st0">0%</dd></div>
+            <div><dt>Turnout effect</dt><dd id="st1">0</dd></div>
+            <div><dt>Vote swing</dt><dd id="st2">0</dd></div>
+            <div><dt>Scenario share</dt><dd id="st3">0%</dd></div>
+          </dl>
+        </div>
+        <div class="panel">
+          <h2>If the same shift happened in every municipality</h2>
+          <p class="sub" id="allSub">All 213 councils, compared with the 2026 baseline forecast.</p>
+          <div class="counts">
+            <div class="c" style="border-color:var(--safe)"><b id="cSafe">0</b><span>Safe</span></div>
+            <div class="c" style="border-color:var(--battle)"><b id="cBattle">0</b><span>Battleground</span></div>
+            <div class="c" style="border-color:var(--hung)"><b id="cHung">0</b><span>Likely hung</span></div>
+            <div class="c"><b id="cExp">0</b><span id="cExpL">expected hung councils</span></div>
+          </div>
+          <p class="small-note" style="margin-top:12px">Zones come from the model's risk: Safe below 25%, Battleground 25–50%, Likely hung 50% or more. This is scenario arithmetic, not a poll: it shows how sensitive each council is, not what will happen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= HOW WE GOT HERE ======================= -->
+  <section class="view" id="v-trends" role="tabpanel">
+    <div class="trends-grid">
+      <div class="panel mapwrap">
+        <div class="map-head">
+          <div>
+            <div class="big-year" id="yearBig">2021</div>
+            <p class="sub">Competition regime of each municipality after every local election, found with KMeans clustering.</p>
+          </div>
+          <div class="years" id="years"></div>
+        </div>
+        <div class="map-box" id="tMapBox">
+          <svg id="tmap" role="img" aria-label="Map of competition regimes by election year"></svg>
+        </div>
+        <div class="regime-key" id="regimeKey" style="padding: 0 18px 16px"></div>
+      </div>
+      <div class="stack">
+        <div class="panel">
+          <h2>One-party dominance has collapsed</h2>
+          <p class="sub">Share of municipalities in each competition regime.</p>
+          <svg id="regimeChart" class="chart" width="100%" height="230"></svg>
+        </div>
+        <div class="panel">
+          <h2>Hung councils after each election</h2>
+          <p class="sub">Leading party below 50% of the PR vote. 2021 more than doubled the previous high.</p>
+          <svg id="hungChart" class="chart" width="100%" height="200"></svg>
+        </div>
+        <div class="panel"><div class="prose" id="trendProse">
+          <p>In 2000, most municipalities were governed by one party with a comfortable majority. Over five elections that picture changed: the typical council went from about 1.8 effective parties to about 2.6, and the leading party's median vote share fell from 70% to 55%.</p>
+          <p>We first tested whether voter turnout rises and falls with this competition, as an inverted U. It did not hold in any election or within municipalities over time. The clearest consequence of fragmentation is instead the rise of hung councils, which is what this dashboard forecasts.</p>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= THE MODEL ======================= -->
+  <section class="view" id="v-model" role="tabpanel">
+    <div class="stats">
+      <div class="panel stat"><div class="n">0.88</div><div class="t">ROC-AUC on the 2021 election, which the model never saw during training.</div></div>
+      <div class="panel stat"><div class="n">62 of 72</div><div class="t">councils that became hung in 2021 were correctly flagged in advance.</div></div>
+      <div class="panel stat"><div class="n">4</div><div class="t">approaches compared, from a no-learning baseline to tuned XGBoost.</div></div>
+    </div>
+    <div class="model-grid">
+      <div class="panel">
+        <h2>Why a simple model beat XGBoost</h2>
+        <div class="prose" style="margin-top:10px">
+          <p>Each training example pairs a municipality at one election with whether its council was hung at the next. We trained on 2000 to 2016 and kept 2021 hidden as the final test.</p>
+          <p>Standard cross-validation favoured XGBoost, but it mixes elections, so the model can learn from the future to predict the past. When we validated in time order, the patterns XGBoost learned in one era did not carry into the next. A logistic regression using only the leading party's current vote share forecast future elections best, and it was chosen before we looked at the 2021 test.</p>
+        </div>
+        <table class="vtable" id="vtable"></table>
+        <p class="small-note" style="margin-top:8px">PR-AUC measures how well each model finds the rarer hung councils. Validation: 2011 and 2016 elections, trained only on earlier ones.</p>
+        <h2 style="margin-top:22px">How KMeans defined the regimes</h2>
+        <p class="sub">Clusters found from effective parties, leading party's share and winning margin across 2000–2016.</p>
+        <table class="vtable" id="ktable">
+          <thead><tr><th>Regime</th><th>Effective parties</th><th>Leading party's share</th><th>Winning margin</th></tr></thead>
+          <tbody>
+            <tr><td><span class="mini"><span class="dot" data-regime="Dominant"></span>Dominant</span></td><td>1.46</td><td>82%</td><td>72 pts</td></tr>
+            <tr><td><span class="mini"><span class="dot" data-regime="Competitive"></span>Competitive</span></td><td>1.96</td><td>67%</td><td>44 pts</td></tr>
+            <tr><td><span class="mini"><span class="dot" data-regime="Fragmented"></span>Fragmented</span></td><td>2.52</td><td>51%</td><td>15 pts</td></tr>
+          </tbody>
+        </table>
+        <p class="small-note" style="margin-top:8px">The Fragmented cluster sits right on the 50% majority line, which is why it is so closely tied to hung councils.</p>
+      </div>
+      <div class="stack">
+        <div class="panel">
+          <h2>Test on the 2021 election</h2>
+          <p class="sub">ROC curves: the closer a line hugs the top-left corner, the better the model separates hung from majority councils.</p>
+          <svg id="rocChart" class="chart" width="100%" height="280"></svg>
+          <div class="key" id="rocKey"></div>
+        </div>
+        <div class="panel">
+          <h2>How the risk is calculated</h2>
+          <p class="sub" id="curveSub">Predicted chance of a hung council at the next election, by the leading party's current vote share.</p>
+          <svg id="curveChart" class="chart" width="100%" height="240"></svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= DATA AND METHOD ======================= -->
+  <section class="view" id="v-data" role="tabpanel">
+    <div class="data-grid">
+      <div class="panel">
+        <h2>From raw results to a 2026 forecast</h2>
+        <ol class="steps">
+          <li><div><b>Collect</b><span>Official IEC results for the 2000, 2006, 2011, 2016 and 2021 local government elections, from the voting-district level upward.</span></div></li>
+          <li><div><b>Clean</b><span>Removed parks and nature reserves, fixed impossible turnout values, harmonised party names, combined the nine 2021 provincial files in code so none were lost, and proved that the 2016 turnout column counted only the leading party's votes. Every fix is recorded in a cleaning log.</span></div></li>
+          <li><div><b>Link</b><span>Followed 263 municipalities across 21 years of boundary and code changes, so each council has a history.</span></div></li>
+          <li><div><b>Measure competition</b><span>Effective Number of Parties, leading party's share and winning margin, all from the PR ballot.</span></div></li>
+          <li><div><b>Test the first idea</b><span>An inverted U between competition and turnout was tested with the Lind–Mehlum test and fixed-effects models, and rejected.</span></div></li>
+          <li><div><b>Model hung councils</b><span>KMeans describes competition regimes; four forecasting models were compared with grouped and forward-chaining cross-validation.</span></div></li>
+          <li><div><b>Forecast 2026</b><span>The chosen model was retrained on all elections and applied to each municipality's 2021 result, with swing scenarios on top.</span></div></li>
+          <li><div><b>Simulate election day</b><span>A turnout gap between the leading party's supporters and other voters is converted into a vote-share change: new share = s(1+t) ÷ (s(1+t) + 1 − s). The points swing is added, and the result goes through the same model.</span></div></li>
+        </ol>
+      </div>
+      <div class="stack">
+        <div class="panel">
+          <h2>Sources</h2>
+          <ul class="plain">
+            <li>Electoral Commission of South Africa (IEC), municipal election results 2000–2021: results.elections.org.za</li>
+            <li>Municipal Demarcation Board, local municipality and province boundaries</li>
+            <li>Laakso and Taagepera (1979), Effective Number of Parties; Lind and Mehlum (2010), U-shape test; Chen and Guestrin (2016), XGBoost</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h2>What to keep in mind</h2>
+          <ul class="plain">
+            <li>A council counts as hung when the leading party wins less than 50% of the PR vote. Seat rounding can occasionally differ from this.</li>
+            <li>The model learns from past elections only. Polls, new parties and local events are not included, which is why the swing scenarios matter.</li>
+            <li>The cleaned 2016 turnout column counted only the leading party's votes, so 2016 turnout was excluded; 2016 vote shares are used.</li>
+            <li>History for merged municipalities follows the predecessor that could be matched by name or code.</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h2>About</h2>
+          <p class="prose" style="font-size:0.98rem">Built for the DIRISA Student Datathon Challenge 2026 to help voters, journalists, parties and the IEC see where coalition government is most likely after the 2026 local elections.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="ticker" aria-label="Watch list highlights">
+  <span class="live"><i></i>Watch list</span>
+  <div class="track"><div class="run" id="tickerRun"></div></div>
+</footer>
+
+<div class="tooltip" id="tip" role="presentation"></div>
+
+<script id="data" type="application/json">__DATA__</script>
+<script id="geo" type="application/json">__GEO__</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script>
+(function () {
+  "use strict";
+  var DATA = JSON.parse(document.getElementById("data").textContent);
+  var GEO = JSON.parse(document.getElementById("geo").textContent);
+  var root = document.documentElement;
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var byId = new Map(DATA.munis.map(function (m) { return [m.id, m]; }));
+  var PROVS = Array.from(new Set(DATA.munis.map(function (m) { return m.prov; }))).sort();
+  var YEARS = [2000, 2006, 2011, 2016, 2021];
+  var REGIMES = ["Dominant", "Competitive", "Fragmented"];
+  var PARTY = { ANC: "#1F9D55", DA: "#2F6FD0", IFP: "#C9463D", NFP: "#B45FA0", ICOSA: "#A2865A", EFF: "#8E1B3A" };
+  var state = { swing: 0, sel: "JHB", prov: "All", year: 2021 };
+
+  var css = function (n) { return getComputedStyle(root).getPropertyValue(n).trim(); };
+  var pctf = d3.format(".0%");
+  var share = function (x) { return (x * 100).toFixed(1) + "%"; };
+  var partyColor = function (p) { return PARTY[p] || "#7D8C94"; };
+  var logit = function (x) { return Math.log(x / (1 - x)); };
+  var sigmoid = function (z) { return 1 / (1 + Math.exp(-z)); };
+  function risk(m, s) {
+    if (s === undefined) s = state.swing;
+    var t = Math.min(0.99, Math.max(0.01, m.ts - s / 100));
+    return sigmoid(DATA.model.b0 + DATA.model.b1 * logit(t));
+  }
+  var riskColor, regimeColor;
+  function buildScales() {
+    riskColor = d3.scaleLinear().domain([0, 0.25, 0.5, 0.75, 1])
+      .range(["--r0", "--r1", "--r2", "--r3", "--r4"].map(css)).interpolate(d3.interpolateLab).clamp(true);
+    regimeColor = d3.scaleOrdinal().domain(REGIMES).range([css("--r1"), css("--r2"), css("--r4")]);
+    document.getElementById("legendBar").style.background =
+      "linear-gradient(90deg," + d3.range(0, 1.01, 0.1).map(function (v) { return riskColor(v); }).join(",") + ")";
+  }
+  var visible = function (m) { return state.prov === "All" || m.prov === state.prov; };
+
+  /* ---------- tooltip ---------- */
+  var tip = document.getElementById("tip");
+  function showTip(html, ev) {
+    tip.innerHTML = html; tip.style.opacity = 1;
+    var x = ev.clientX + 14, y = ev.clientY + 14, r = tip.getBoundingClientRect();
+    if (x + r.width > window.innerWidth - 8) x = ev.clientX - r.width - 14;
+    if (y + r.height > window.innerHeight - 8) y = ev.clientY - r.height - 14;
+    tip.style.left = x + "px"; tip.style.top = y + "px";
+  }
+  function hideTip() { tip.style.opacity = 0; }
+
+  /* ---------- reusable map ---------- */
+  function makeMap(svgId, boxId, handlers) {
+    var svg = d3.select("#" + svgId), box = document.getElementById(boxId);
+    var g = svg.append("g"), gm = g.append("g"), gp = g.append("g");
+    var defs = svg.append("defs");
+    defs.append("pattern").attr("id", svgId + "-hatch").attr("width", 5).attr("height", 5)
+      .attr("patternUnits", "userSpaceOnUse").attr("patternTransform", "rotate(45)")
+      .append("rect").attr("width", 1.4).attr("height", 5).attr("class", "hatch");
+    var path, proj, w = 0, h = 0;
+    var zoom = d3.zoom().scaleExtent([1, 10]).on("zoom", function (ev) { g.attr("transform", ev.transform); });
+    svg.call(zoom).on("dblclick.zoom", null);
+    var feats = GEO.munis.features;
+    var paths = gm.selectAll("path").data(feats, function (d) { return d.id; }).join("path")
+      .attr("class", "muni")
+      .on("mousemove", function (ev, d) { handlers.tip && showTip(handlers.tip(d), ev); })
+      .on("mouseleave", hideTip)
+      .on("click", function (ev, d) { handlers.click && handlers.click(d); });
+    var provs = gp.selectAll("path").data(GEO.provs.features).join("path").attr("class", "prov");
+    function layout() {
+      w = box.clientWidth; h = box.clientHeight;
+      if (!w || !h) return;
+      svg.attr("viewBox", [0, 0, w, h]);
+      proj = d3.geoIdentity().reflectY(true).fitExtent([[16, 16], [w - 16, h - 16]], GEO.munis);
+      path = d3.geoPath(proj);
+      paths.attr("d", path); provs.attr("d", path);
+    }
+    function zoomToProvince(name) {
+      if (!path) return;
+      if (name === "All") { svg.transition().duration(reduceMotion ? 0 : 700).call(zoom.transform, d3.zoomIdentity); return; }
+      var f = GEO.provs.features.find(function (p) { return p.id === name; });
+      var b = path.bounds(f), dx = b[1][0] - b[0][0], dy = b[1][1] - b[0][1];
+      var k = Math.min(8, 0.9 / Math.max(dx / w, dy / h));
+      var t = d3.zoomIdentity.translate(w / 2, h / 2).scale(k).translate(-(b[0][0] + b[1][0]) / 2, -(b[0][1] + b[1][1]) / 2);
+      svg.transition().duration(reduceMotion ? 0 : 750).call(zoom.transform, t);
+    }
+    new ResizeObserver(function () { layout(); }).observe(box);
+    layout();
+    return { paths: paths, zoomToProvince: zoomToProvince, svg: svg,
+      reset: function () { zoomToProvince("All"); } };
+  }
+
+  /* ---------- forecast view ---------- */
+  var fmap = makeMap("map", "mapBox", {
+    tip: function (d) {
+      var m = byId.get(d.id);
+      return "<strong>" + m.name + "</strong><span class='t-muted'>" + m.prov + "</span><br>" +
+        pctf(risk(m)) + " chance of a hung council<br><span class='t-muted'>" + m.lp + " won " + share(m.ts) + " in 2021</span>";
+    },
+    click: function (d) { select(d.id); }
+  });
+  var lastExpected = 0;
+
+  function updateForecast(animate) {
+    var t = fmap.paths.transition().duration(animate && !reduceMotion ? 350 : 0);
+    t.attr("fill", function (d) { return riskColor(risk(byId.get(d.id))); });
+    fmap.paths.classed("dim", function (d) { return !visible(byId.get(d.id)); })
+      .classed("sel", function (d) { return d.id === state.sel; });
+    fmap.paths.filter(function (d) { return d.id === state.sel; }).raise();
+
+    var pool = DATA.munis.filter(visible);
+    var expected = d3.sum(pool, function (m) { return risk(m); });
+    var high = pool.filter(function (m) { return risk(m) >= 0.5; }).length;
+    var flip = pool.filter(function (m) { return !m.hung && risk(m) >= 1 / 3; }).length;
+    var now = pool.filter(function (m) { return m.hung; }).length;
+    var place = state.prov === "All" ? "" : " in " + state.prov;
+    document.getElementById("kExpectedLabel").textContent = "councils expected to be hung" + place;
+    var el = document.getElementById("kExpected"), from = lastExpected, to = expected;
+    if (reduceMotion || !animate) { el.textContent = Math.round(to); }
+    else {
+      d3.select(el).transition().duration(450).tween("text", function () {
+        var i = d3.interpolateNumber(from, to);
+        return function (tt) { el.textContent = Math.round(i(tt)); };
+      });
+    }
+    lastExpected = expected;
+    var diff = Math.round(expected) - now;
+    document.getElementById("kDelta").textContent = (diff >= 0 ? diff + " more than" : Math.abs(diff) + " fewer than") +
+      " after 2021, out of " + pool.length + " municipalities" + place + ".";
+    document.getElementById("kHigh").textContent = high;
+    document.getElementById("kFlip").textContent = flip;
+    document.getElementById("kNow").textContent = now;
+    document.getElementById("swingOut").textContent = (state.swing > 0 ? "−" : "") + (+state.swing).toFixed(1).replace(".0", "");
+    renderDetail(); renderProvBars(); renderWatch(); renderCurve();
+  }
+
+  function select(id) {
+    state.sel = id;
+    var m = byId.get(id);
+    document.getElementById("search").value = m.name;
+    updateForecast(false);
+    if (window.innerWidth < 1240) document.getElementById("detail").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+  }
+
+  function renderDetail() {
+    var m = byId.get(state.sel), p = risk(m), base = risk(m, 0), runner = Math.max(0, m.ts - m.margin);
+    var el = document.getElementById("detail");
+    var change = state.swing > 0 ? "<div class='lab'>" + pctf(base) + " with no further swing</div>" : "";
+    var pills = YEARS.map(function (y) {
+      var hrec = m.hist.find(function (r) { return r.y === y; });
+      if (!hrec) return "<div class='pill none'><span>" + String(y).slice(2) + "</span>n/a</div>";
+      var bg = regimeColor(hrec.rg), ink = d3.lab(bg).l > 55 ? "#0C161D" : "#F2F6F7";
+      return "<div class='pill' style='background:" + bg + ";color:" + ink + "' title='" + y + ": " + hrec.rg + "'><span>'" +
+        String(y).slice(2) + "</span>" + hrec.rg.slice(0, 4) + "</div>";
+    }).join("");
+    el.innerHTML =
+      "<div><div class='where'>" + m.prov + (m.metro ? "<span class='tag'>Metro</span>" : "") + "</div><h2>" + m.name + "</h2></div>" +
+      "<div class='leader'><span class='dot' style='background:" + partyColor(m.lp) + "'></span><span>" + m.lp +
+      " led with " + share(m.ts) + " of the PR vote in 2021" + (m.hung ? ", short of a majority." : ".") + "</span></div>" +
+      "<div class='meter'><div class='val'>" + pctf(p) + "</div><div class='lab'>chance of a hung council in 2026" +
+      (state.swing > 0 ? " with a " + (+state.swing).toFixed(1).replace(".0", "") + "-point swing" : "") + "</div>" + change +
+      "<div class='track'><div class='fill' style='width:" + (p * 100) + "%;background:" + riskColor(p) + "'></div></div></div>" +
+      "<dl class='facts'><div><dt>Effective parties</dt><dd>" + m.enp.toFixed(2) + "</dd></div>" +
+      "<div><dt>Second place</dt><dd>" + share(runner) + "</dd></div>" +
+      "<div><dt>Parties on the ballot</dt><dd>" + m.parties + "</dd></div>" +
+      "<div><dt>Turnout 2021</dt><dd>" + (m.to == null ? "n/a" : m.to.toFixed(1) + "%") + "</dd></div>" +
+      "<div><dt>" + (m.hung ? "Short of a majority by" : "Above the majority line by") + "</dt><dd>" + Math.abs((m.ts - 0.5) * 100).toFixed(1) + " pts</dd></div>" +
+      "<div><dt>XGBoost second opinion</dt><dd>" + pctf(m.xgb) + "</dd></div></dl>" +
+      "<div><div class='sub' style='margin-bottom:4px'>Leading party's share, 2000–2021</div><svg id='spark' class='chart' width='100%' height='130'></svg></div>" +
+      "<div><div class='sub' style='margin-bottom:6px'>Competition regime after each election</div><div class='pills'>" + pills + "</div></div>";
+    drawSpark(m);
+  }
+
+  function drawSpark(m) {
+    var svg = d3.select("#spark"), W = svg.node().clientWidth || 300, H = 130, M = { t: 10, r: 30, b: 20, l: 38 };
+    svg.attr("viewBox", [0, 0, W, H]);
+    var x = d3.scalePoint().domain(YEARS).range([M.l, W - M.r]).padding(0.2);
+    var y = d3.scaleLinear().domain([0.2, 1]).range([H - M.b, M.t]);
+    svg.append("g").attr("class", "grid").selectAll("line").data([0.25, 0.5, 0.75, 1]).join("line")
+      .attr("x1", M.l).attr("x2", W - M.r).attr("y1", y).attr("y2", y);
+    svg.append("line").attr("x1", M.l).attr("x2", W - M.r).attr("y1", y(0.5)).attr("y2", y(0.5))
+      .attr("stroke", css("--r4")).attr("stroke-dasharray", "4 3");
+    svg.append("text").attr("x", W - M.r).attr("y", y(0.5) - 4).attr("text-anchor", "end").attr("fill", css("--r4")).text("majority");
+    svg.append("g").selectAll("text").data([0.25, 0.5, 0.75, 1]).join("text").attr("x", M.l - 6).attr("y", function (d) { return y(d) + 4; })
+      .attr("text-anchor", "end").text(function (d) { return pctf(d); });
+    svg.append("g").selectAll("text").data(YEARS).join("text").attr("x", x).attr("y", H - 4).attr("text-anchor", "middle").text(function (d) { return d; });
+    var pts = m.hist.filter(function (r) { return YEARS.indexOf(r.y) >= 0; });
+    svg.append("path").datum(pts).attr("fill", "none").attr("stroke", css("--text")).attr("stroke-width", 1.6).attr("opacity", 0.7)
+      .attr("d", d3.line().x(function (d) { return x(d.y); }).y(function (d) { return y(Math.max(0.2, d.ts)); }));
+    svg.append("g").selectAll("circle").data(pts).join("circle").attr("cx", function (d) { return x(d.y); })
+      .attr("cy", function (d) { return y(Math.max(0.2, d.ts)); }).attr("r", 4.5)
+      .attr("fill", function (d) { return partyColor(d.lp); }).attr("stroke", css("--surface")).attr("stroke-width", 1.5)
+      .append("title").text(function (d) { return d.y + ": " + d.lp + " " + share(d.ts); });
+    if (state.swing > 0) {
+      var ts = Math.max(0.2, m.ts - state.swing / 100);
+      svg.append("line").attr("x1", x(2021)).attr("x2", x(2021) + 18).attr("y1", y(Math.max(0.2, m.ts))).attr("y2", y(ts))
+        .attr("stroke", css("--accent")).attr("stroke-dasharray", "3 2");
+      svg.append("circle").attr("cx", x(2021) + 18).attr("cy", y(ts)).attr("r", 4).attr("fill", "none").attr("stroke", css("--accent")).attr("stroke-width", 1.5);
+    }
+  }
+
+  function renderProvBars() {
+    var rows = PROVS.map(function (p) {
+      var ms = DATA.munis.filter(function (m) { return m.prov === p; });
+      return { p: p, v: d3.mean(ms, function (m) { return risk(m); }), n: ms.length };
+    }).sort(function (a, b) { return b.v - a.v; });
+    var svg = d3.select("#provBars"), W = svg.node().clientWidth || 400, rowH = 30, M = { t: 8, r: 70, b: 4, l: 110 };
+    var H = M.t + M.b + rows.length * rowH;
+    svg.attr("height", H).attr("viewBox", [0, 0, W, H]);
+    var x = d3.scaleLinear().domain([0, 1]).range([M.l, W - M.r]);
+    var y = d3.scaleBand().domain(rows.map(function (r) { return r.p; })).range([M.t, H - M.b]).padding(0.28);
+    var g = svg.selectAll("g.row").data(rows, function (d) { return d.p; }).join(function (enter) {
+      var gg = enter.append("g").attr("class", "row clickable");
+      gg.append("rect").attr("class", "bg"); gg.append("rect").attr("class", "val");
+      gg.append("text").attr("class", "lbl name"); gg.append("text").attr("class", "num");
+      return gg;
+    });
+    g.on("click", function (ev, d) { setProvince(state.prov === d.p ? "All" : d.p); });
+    g.transition().duration(reduceMotion ? 0 : 400).attr("transform", function (d) { return "translate(0," + y(d.p) + ")"; });
+    g.select("rect.bg").attr("x", x(0)).attr("width", x(1) - x(0)).attr("height", y.bandwidth()).attr("rx", 3).attr("fill", css("--surface-2"));
+    g.select("rect.val").attr("x", x(0)).attr("height", y.bandwidth()).attr("rx", 3)
+      .attr("opacity", function (d) { return state.prov === "All" || state.prov === d.p ? 1 : 0.35; })
+      .transition().duration(reduceMotion ? 0 : 350).attr("width", function (d) { return x(d.v) - x(0); }).attr("fill", function (d) { return riskColor(d.v); });
+    g.select("text.name").attr("x", M.l - 8).attr("y", y.bandwidth() / 2 + 4).attr("text-anchor", "end")
+      .style("font-weight", function (d) { return state.prov === d.p ? 700 : 400; }).text(function (d) { return d.p; });
+    g.select("text.num").attr("x", function (d) { return x(d.v) + 6; }).attr("y", y.bandwidth() / 2 + 4)
+      .text(function (d) { return pctf(d.v) + "  (" + d.n + ")"; });
+  }
+
+  function renderWatch() {
+    var pool = DATA.munis.filter(function (m) { return !m.hung && visible(m); })
+      .sort(function (a, b) { return risk(b) - risk(a); }).slice(0, 10);
+    document.getElementById("watchSub").textContent = "Councils that kept a majority in 2021 but are closest to losing it" +
+      (state.prov === "All" ? "." : ", in " + state.prov + ".");
+    var html = "<thead><tr><th>Municipality</th><th>Province</th><th>2021 leader</th><th style='min-width:150px'>Risk in 2026</th></tr></thead><tbody>";
+    html += pool.map(function (m) {
+      var p = risk(m);
+      return "<tr><td><button class='link' data-id='" + m.id + "'>" + m.name + "</button></td><td>" + m.prov + "</td>" +
+        "<td><span class='mini'><span class='dot' style='background:" + partyColor(m.lp) + "'></span>" + m.lp + " " + share(m.ts) + "</span></td>" +
+        "<td><span class='mini'><span class='track'><span class='fill' style='display:block;width:" + (p * 100) + "%;background:" + riskColor(p) + "'></span></span>" + pctf(p) + "</span></td></tr>";
+    }).join("") + "</tbody>";
+    var t = document.getElementById("watch"); t.innerHTML = html;
+    t.querySelectorAll("button.link").forEach(function (b) { b.addEventListener("click", function () { select(b.dataset.id); }); });
+  }
+
+  function setProvince(p) {
+    state.prov = p;
+    if (p !== "All" && byId.get(state.sel).prov !== p) {
+      state.sel = DATA.munis.filter(function (m) { return m.prov === p; })
+        .sort(function (a, b) { return risk(b) - risk(a); })[0].id;
+      document.getElementById("search").value = byId.get(state.sel).name;
+    }
+    document.getElementById("provSel").value = p;
+    fmap.zoomToProvince(p);
+    updateForecast(true);
+  }
+
+  /* ---------- controls ---------- */
+  var provSel = document.getElementById("provSel");
+  provSel.innerHTML = "<option value='All'>All provinces</option>" + PROVS.map(function (p) { return "<option>" + p + "</option>"; }).join("");
+  provSel.addEventListener("change", function () { setProvince(provSel.value); });
+  document.getElementById("muniList").innerHTML = DATA.munis.slice().sort(function (a, b) { return a.name.localeCompare(b.name); })
+    .map(function (m) { return "<option value='" + m.name.replace(/'/g, "&#39;") + "'>" + m.prov + "</option>"; }).join("");
+  document.getElementById("search").addEventListener("change", function (e) {
+    var q = e.target.value.trim().toLowerCase();
+    var m = DATA.munis.find(function (x) { return x.name.toLowerCase() === q; }) ||
+            DATA.munis.find(function (x) { return x.name.toLowerCase().indexOf(q) >= 0; });
+    if (m) select(m.id);
+  });
+  var swingEl = document.getElementById("swing");
+  var chips = document.querySelectorAll(".quick .chip-btn");
+  function setSwing(v, animate) {
+    state.swing = +v; swingEl.value = v;
+    chips.forEach(function (c) { c.setAttribute("aria-pressed", String(Math.abs(+c.dataset.swing - state.swing) < 0.01)); });
+    updateForecast(animate);
+  }
+  swingEl.addEventListener("input", function () { setSwing(swingEl.value, true); });
+  chips.forEach(function (c) { c.addEventListener("click", function () { setSwing(c.dataset.swing, true); }); });
+  document.getElementById("resetZoom").addEventListener("click", function () { setProvince("All"); });
+
+  /* ---------- trends view ---------- */
+  var tmap = makeMap("tmap", "tMapBox", {
+    tip: function (d) {
+      var m = byId.get(d.id), r = m.hist.find(function (x) { return x.y === state.year; });
+      return "<strong>" + m.name + "</strong><span class='t-muted'>" + m.prov + "</span><br>" +
+        (r ? state.year + ": " + r.rg + "<br><span class='t-muted'>" + r.lp + " " + share(r.ts) + ", " + r.enp.toFixed(2) + " effective parties</span>"
+           : "<span class='t-muted'>No matching record in " + state.year + "</span>");
+    },
+    click: function (d) { select(d.id); switchView("v-forecast"); }
+  });
+  function colourTrendMap(animate) {
+    tmap.paths.transition().duration(animate && !reduceMotion ? 500 : 0).attr("fill", function (d) {
+      var r = byId.get(d.id).hist.find(function (x) { return x.y === state.year; });
+      return r ? regimeColor(r.rg) : "url(#tmap-hatch)";
+    });
+    d3.selectAll(".hatch").attr("fill", css("--line-strong"));
+    document.getElementById("yearBig").textContent = state.year;
+    document.querySelectorAll("#years button.y").forEach(function (b) { b.setAttribute("aria-pressed", String(+b.dataset.y === state.year)); });
+    drawRegimeChart(); drawHungChart();
+  }
+  var yearsEl = document.getElementById("years");
+  yearsEl.innerHTML = YEARS.map(function (y) { return "<button class='y' data-y='" + y + "' aria-pressed='false'>" + y + "</button>"; }).join("") +
+    "<button class='play' id='playBtn'><svg viewBox='0 0 24 24' fill='currentColor'><path d='M7 4v16l13-8z'/></svg><span>Play</span></button>";
+  yearsEl.querySelectorAll("button.y").forEach(function (b) {
+    b.addEventListener("click", function () { stopPlay(); state.year = +b.dataset.y; colourTrendMap(true); });
+  });
+  var playTimer = null, playBtn = document.getElementById("playBtn");
+  function stopPlay() { if (playTimer) { clearInterval(playTimer); playTimer = null; } playBtn.querySelector("span").textContent = "Play"; }
+  playBtn.addEventListener("click", function () {
+    if (playTimer) { stopPlay(); return; }
+    var i = 0; state.year = YEARS[0]; colourTrendMap(true);
+    playBtn.querySelector("span").textContent = "Pause";
+    playTimer = setInterval(function () {
+      i += 1;
+      if (i >= YEARS.length) { stopPlay(); return; }
+      state.year = YEARS[i]; colourTrendMap(true);
+    }, 1500);
+  });
+  function renderRegimeKey() {
+    document.querySelectorAll("#ktable .dot").forEach(function (d) { d.style.background = regimeColor(d.dataset.regime); });
+    document.getElementById("regimeKey").innerHTML = REGIMES.map(function (r) {
+      return "<span><i style='background:" + regimeColor(r) + "'></i>" + r + "</span>";
+    }).join("") + "<span><i style='background:repeating-linear-gradient(45deg," + css("--line-strong") + " 0 1.5px,transparent 1.5px 4px)'></i>No matching record</span>";
+  }
+  function drawRegimeChart() {
+    var svg = d3.select("#regimeChart"); svg.selectAll("*").remove();
+    var W = svg.node().clientWidth || 400, H = 230, M = { t: 10, r: 10, b: 24, l: 36 };
+    svg.attr("viewBox", [0, 0, W, H]);
+    var x = d3.scaleBand().domain(YEARS).range([M.l, W - M.r]).padding(0.3);
+    var y = d3.scaleLinear().domain([0, 1]).range([H - M.b, M.t]);
+    var keys = ["dom", "comp", "frag"];
+    var stack = d3.stack().keys(keys)(DATA.trend);
+    svg.append("g").selectAll("g").data(stack).join("g").attr("fill", function (d, i) { return regimeColor(REGIMES[i]); })
+      .selectAll("rect").data(function (d) { return d; }).join("rect").attr("class", "clickable")
+      .attr("x", function (d) { return x(d.data.y); }).attr("width", x.bandwidth())
+      .attr("y", function (d) { return y(d[1]); }).attr("height", function (d) { return y(d[0]) - y(d[1]); })
+      .attr("opacity", function (d) { return d.data.y === state.year ? 1 : 0.45; })
+      .on("click", function (ev, d) { stopPlay(); state.year = d.data.y; colourTrendMap(true); });
+    svg.append("g").selectAll("text").data(stack[2]).join("text").attr("class", "lbl").attr("text-anchor", "middle")
+      .attr("x", function (d) { return x(d.data.y) + x.bandwidth() / 2; }).attr("y", function (d) { return y(d[1]) + 15; })
+      .style("fill", "#0C161D").style("font-weight", 700).text(function (d) { return pctf(d.data.frag); });
+    svg.append("g").selectAll("text").data(YEARS).join("text").attr("x", function (d) { return x(d) + x.bandwidth() / 2; })
+      .attr("y", H - 6).attr("text-anchor", "middle").style("font-weight", function (d) { return d === state.year ? 700 : 400; }).text(function (d) { return d; });
+    svg.append("g").selectAll("text").data([0, 0.5, 1]).join("text").attr("x", M.l - 6).attr("y", function (d) { return y(d) + 4; })
+      .attr("text-anchor", "end").text(pctf);
+  }
+  function drawHungChart() {
+    var svg = d3.select("#hungChart"); svg.selectAll("*").remove();
+    var W = svg.node().clientWidth || 400, H = 200, M = { t: 22, r: 10, b: 24, l: 10 };
+    svg.attr("viewBox", [0, 0, W, H]);
+    var x = d3.scaleBand().domain(YEARS).range([M.l, W - M.r]).padding(0.35);
+    var y = d3.scaleLinear().domain([0, d3.max(DATA.trend, function (d) { return d.hung; }) * 1.1]).range([H - M.b, M.t]);
+    svg.append("g").selectAll("rect").data(DATA.trend).join("rect").attr("class", "clickable")
+      .attr("x", function (d) { return x(d.y); }).attr("width", x.bandwidth()).attr("rx", 3)
+      .attr("y", function (d) { return y(d.hung); }).attr("height", function (d) { return y(0) - y(d.hung); })
+      .attr("fill", function (d) { return d.y === 2021 ? css("--r4") : css("--r2"); })
+      .attr("opacity", function (d) { return d.y === state.year ? 1 : 0.55; })
+      .on("click", function (ev, d) { stopPlay(); state.year = d.y; colourTrendMap(true); });
+    svg.append("g").selectAll("text").data(DATA.trend).join("text").attr("class", "lbl").attr("text-anchor", "middle")
+      .attr("x", function (d) { return x(d.y) + x.bandwidth() / 2; }).attr("y", function (d) { return y(d.hung) - 6; })
+      .style("font-weight", 700).text(function (d) { return d.hung; });
+    svg.append("g").selectAll("text").data(YEARS).join("text").attr("x", function (d) { return x(d) + x.bandwidth() / 2; })
+      .attr("y", H - 6).attr("text-anchor", "middle").style("font-weight", function (d) { return d === state.year ? 700 : 400; }).text(function (d) { return d; });
+  }
+
+  /* ---------- model view ---------- */
+  var MODEL_COL = {};
+  function modelColours() {
+    MODEL_COL = { "Logistic regression (simple)": css("--accent"), "XGBoost (full)": css("--r3"),
+      "Logistic regression (full)": css("--r1"), "Persistence baseline": css("--muted") };
+  }
+  function renderVTable() {
+    var rows = DATA.table.map(function (r) {
+      return "<tr class='" + (r.model === DATA.model.selected ? "chosen" : "") + "'><td>" + r.model + "</td><td>" + r.v11.toFixed(2) +
+        "</td><td>" + r.v16.toFixed(2) + "</td><td>" + r.vm.toFixed(2) + "</td><td>" + r.t_ap.toFixed(2) + "</td></tr>";
+    }).join("");
+    document.getElementById("vtable").innerHTML = "<thead><tr><th>Model (PR-AUC)</th><th>2011</th><th>2016</th><th>Validation mean</th><th>2021 test</th></tr></thead><tbody>" + rows + "</tbody>";
+  }
+  function drawRoc() {
+    var svg = d3.select("#rocChart"); svg.selectAll("*").remove();
+    var W = svg.node().clientWidth || 400, H = 280, M = { t: 10, r: 14, b: 32, l: 40 };
+    svg.attr("viewBox", [0, 0, W, H]);
+    var x = d3.scaleLinear().domain([0, 1]).range([M.l, W - M.r]), y = d3.scaleLinear().domain([0, 1]).range([H - M.b, M.t]);
+    svg.append("g").attr("class", "grid").selectAll("line").data([0.25, 0.5, 0.75, 1]).join("line")
+      .attr("x1", M.l).attr("x2", W - M.r).attr("y1", y).attr("y2", y);
+    svg.append("line").attr("x1", x(0)).attr("y1", y(0)).attr("x2", x(1)).attr("y2", y(1)).attr("stroke", css("--line-strong")).attr("stroke-dasharray", "3 3");
+    svg.append("g").attr("class", "axis").attr("transform", "translate(0," + (H - M.b) + ")").call(d3.axisBottom(x).ticks(4).tickFormat(pctf));
+    svg.append("g").attr("class", "axis").attr("transform", "translate(" + M.l + ",0)").call(d3.axisLeft(y).ticks(4).tickFormat(pctf));
+    svg.append("text").attr("x", W - M.r).attr("y", H - 2).attr("text-anchor", "end").text("False alarms (share of majority councils flagged)");
+    var order = ["Persistence baseline", "Logistic regression (full)", "XGBoost (full)", "Logistic regression (simple)"];
+    order.forEach(function (name) {
+      svg.append("path").datum(DATA.rocs[name]).attr("fill", "none").attr("stroke", MODEL_COL[name])
+        .attr("stroke-width", name === DATA.model.selected ? 3 : 1.8)
+        .attr("stroke-dasharray", name === "Persistence baseline" ? "5 4" : null)
+        .attr("d", d3.line().x(function (d) { return x(d[0]); }).y(function (d) { return y(d[1]); }));
+    });
+    var auc = {}; DATA.table.forEach(function (r) { auc[r.model] = r.t_auc; });
+    document.getElementById("rocKey").innerHTML = order.slice().reverse().map(function (n) {
+      return "<span><i style='background:" + MODEL_COL[n] + "'></i>" + n + " (" + auc[n].toFixed(2) + ")</span>";
+    }).join("") + "<span>The baseline sits under the simple model: they rank councils identically.</span>";
+  }
+  function renderCurve() {
+    var svg = d3.select("#curveChart"); if (svg.empty()) return; svg.selectAll("*").remove();
+    var W = svg.node().clientWidth || 400, H = 240, M = { t: 14, r: 14, b: 32, l: 40 };
+    if (!W) return;
+    svg.attr("viewBox", [0, 0, W, H]);
+    var x = d3.scaleLinear().domain([0.25, 0.95]).range([M.l, W - M.r]), y = d3.scaleLinear().domain([0, 1]).range([H - M.b, M.t]);
+    svg.append("g").attr("class", "grid").selectAll("line").data([0.25, 0.5, 0.75, 1]).join("line").attr("x1", M.l).attr("x2", W - M.r).attr("y1", y).attr("y2", y);
+    svg.append("g").attr("class", "axis").attr("transform", "translate(0," + (H - M.b) + ")").call(d3.axisBottom(x).ticks(7).tickFormat(pctf));
+    svg.append("g").attr("class", "axis").attr("transform", "translate(" + M.l + ",0)").call(d3.axisLeft(y).ticks(4).tickFormat(pctf));
+    svg.append("line").attr("x1", x(0.5)).attr("x2", x(0.5)).attr("y1", M.t).attr("y2", H - M.b).attr("stroke", css("--r4")).attr("stroke-dasharray", "4 3");
+    svg.append("text").attr("x", x(0.5) + 5).attr("y", M.t + 10).attr("fill", css("--r4")).text("50% line");
+    var pts = d3.range(0.25, 0.951, 0.005).map(function (s) { return [s, sigmoid(DATA.model.b0 + DATA.model.b1 * logit(s))]; });
+    var grad = svg.append("defs").append("linearGradient").attr("id", "cg").attr("x1", "0%").attr("x2", "100%");
+    d3.range(0, 1.01, 0.1).forEach(function (t) {
+      var s = 0.25 + t * 0.7; grad.append("stop").attr("offset", t * 100 + "%").attr("stop-color", riskColor(sigmoid(DATA.model.b0 + DATA.model.b1 * logit(s))));
+    });
+    svg.append("path").datum(pts).attr("fill", "none").attr("stroke", "url(#cg)").attr("stroke-width", 3.5)
+      .attr("d", d3.line().x(function (d) { return x(d[0]); }).y(function (d) { return y(d[1]); }));
+    svg.append("text").attr("x", W - M.r).attr("y", H - 2).attr("text-anchor", "end").text("Leading party's current vote share");
+    var m = byId.get(state.sel), s = Math.min(0.95, Math.max(0.25, m.ts - state.swing / 100)), p = risk(m);
+    svg.append("circle").attr("cx", x(s)).attr("cy", y(p)).attr("r", 6).attr("fill", css("--surface")).attr("stroke", css("--text")).attr("stroke-width", 2);
+    svg.append("text").attr("class", "lbl").attr("x", x(s) + (s > 0.75 ? -10 : 10)).attr("y", y(p) - 10)
+      .attr("text-anchor", s > 0.75 ? "end" : "start").style("font-weight", 700).text(m.name + ": " + pctf(p));
+    document.getElementById("curveSub").textContent = "Predicted chance of a hung council at the next election, by the leading party's current vote share. The marker follows the municipality selected on the forecast map" +
+      (state.swing > 0 ? " and the current swing." : ".");
+  }
+
+  /* ---------- election-day simulator ---------- */
+  var sim = { pts: 0, turn: 0 };
+  var clampShare = function (s) { return Math.min(0.99, Math.max(0.01, s)); };
+  var riskOfShare = function (s) { return sigmoid(DATA.model.b0 + DATA.model.b1 * logit(clampShare(s))); };
+  // Leading-party shares at which the model's risk crosses 50% and 25%.
+  var SHARE_HUNG = sigmoid(-DATA.model.b0 / DATA.model.b1);
+  var SHARE_SAFE = sigmoid((logit(0.25) - DATA.model.b0) / DATA.model.b1);
+  function simulate(m, pts, turn) {
+    var s = m.ts, a = s * (1 + turn / 100);
+    var afterTurn = a / (a + (1 - s));                 // turnout gap converted into a vote share
+    var share = clampShare(afterTurn + pts / 100);     // then the points swing
+    return { s0: s, s1: afterTurn, s2: share, p0: risk(m, 0), p: riskOfShare(share) };
+  }
+  function zone(p) { return p >= 0.5 ? "Likely hung" : p >= 0.25 ? "Battleground" : "Safe"; }
+  function zoneVar(z) { return z === "Safe" ? "--safe" : z === "Battleground" ? "--battle" : "--hung"; }
+  var signed = function (v, unit) { return (v > 0 ? "+" : v < 0 ? "−" : "±") + Math.abs(v).toFixed(1).replace(".0", "") + unit; };
+
+  var simSel = document.getElementById("simSel");
+  simSel.innerHTML = PROVS.map(function (p) {
+    return "<optgroup label='" + p + "'>" + DATA.munis.filter(function (m) { return m.prov === p; })
+      .sort(function (a, b) { return a.name.localeCompare(b.name); })
+      .map(function (m) { return "<option value='" + m.id + "'>" + m.name + "</option>"; }).join("") + "</optgroup>";
+  }).join("");
+  simSel.addEventListener("change", function () { state.sel = simSel.value; updateForecast(false); renderSim(); });
+  var simPts = document.getElementById("simPts"), simTurn = document.getElementById("simTurn");
+  simPts.addEventListener("input", function () { sim.pts = +simPts.value; renderSim(); });
+  simTurn.addEventListener("input", function () { sim.turn = +simTurn.value; renderSim(); });
+  document.querySelectorAll("#simPresets .chip-btn").forEach(function (b) {
+    b.addEventListener("click", function () {
+      sim.pts = +b.dataset.pts; sim.turn = +b.dataset.turn;
+      simPts.value = sim.pts; simTurn.value = sim.turn; renderSim();
+    });
+  });
+
+  function renderSim() {
+    var m = byId.get(state.sel), r = simulate(m, sim.pts, sim.turn), z = zone(r.p), z0 = zone(r.p0);
+    simSel.value = m.id;
+    document.getElementById("simPtsOut").textContent = signed(sim.pts, " pts");
+    document.getElementById("simTurnOut").textContent = signed(sim.turn, "%");
+    document.querySelectorAll("#simPresets .chip-btn").forEach(function (b) {
+      b.setAttribute("aria-pressed", String(+b.dataset.pts === sim.pts && +b.dataset.turn === sim.turn));
+    });
+    document.getElementById("simWhere").textContent = m.name + ", " + m.prov + " — " + m.lp + " led in 2021";
+    var word = document.getElementById("simWord");
+    word.textContent = z; word.style.color = css(zoneVar(z));
+    var why;
+    if (z === "Safe") why = "The leading party would need to lose another " + ((r.s2 - SHARE_SAFE) * 100).toFixed(1) + " points before this council becomes a battleground.";
+    else if (z === "Battleground") why = "Losing another " + ((r.s2 - SHARE_HUNG) * 100).toFixed(1) + " points would tip it to likely hung; gaining " + ((SHARE_SAFE - r.s2) * 100).toFixed(1) + " points would make it safe.";
+    else why = "The leading party would need to gain " + ((SHARE_HUNG - r.s2) * 100).toFixed(1) + " points to get back to a better-than-even chance of a majority.";
+    if (z !== z0) why = "Shifts from " + z0 + " at baseline. " + why;
+    document.getElementById("simWhy").textContent = why;
+    document.getElementById("simRisk").textContent = pctf(r.p);
+    var dp = Math.round((r.p - r.p0) * 100);
+    document.getElementById("simRiskD").textContent = "chance of a hung council" + (dp === 0 ? " (same as baseline)" : " (" + (dp > 0 ? "+" : "−") + Math.abs(dp) + " pts vs baseline " + pctf(r.p0) + ")");
+    document.getElementById("st0").textContent = share(r.s0);
+    document.getElementById("st1").textContent = signed((r.s1 - r.s0) * 100, " pts");
+    document.getElementById("st2").textContent = signed(sim.pts, " pts");
+    document.getElementById("st3").textContent = share(r.s2);
+    // Same shift applied everywhere.
+    var counts = { "Safe": 0, "Battleground": 0, "Likely hung": 0 }, expected = 0, baseline = 0;
+    DATA.munis.forEach(function (x) { var rr = simulate(x, sim.pts, sim.turn); counts[zone(rr.p)] += 1; expected += rr.p; baseline += rr.p0; });
+    document.getElementById("cSafe").textContent = counts["Safe"];
+    document.getElementById("cBattle").textContent = counts["Battleground"];
+    document.getElementById("cHung").textContent = counts["Likely hung"];
+    document.getElementById("cExp").textContent = Math.round(expected);
+    document.getElementById("cExpL").textContent = "expected hung councils (" + Math.round(baseline) + " at baseline)";
+    drawShareBar(r);
+  }
+
+  function drawShareBar(r) {
+    var svg = d3.select("#simBar"); if (svg.empty()) return;
+    var W = svg.node().clientWidth; if (!W) return;
+    svg.selectAll("*").remove();
+    var H = 128, M = { t: 34, r: 16, b: 26, l: 16 }, barY = M.t, barH = 22;
+    svg.attr("viewBox", [0, 0, W, H]);
+    var x = d3.scaleLinear().domain([0.15, 1]).range([M.l, W - M.r]).clamp(true);
+    var zones = [[0.15, SHARE_HUNG, "Likely hung", "--hung"], [SHARE_HUNG, SHARE_SAFE, "Battleground", "--battle"], [SHARE_SAFE, 1, "Safe", "--safe"]];
+    svg.append("g").selectAll("rect").data(zones).join("rect")
+      .attr("x", function (d) { return x(d[0]); }).attr("width", function (d) { return x(d[1]) - x(d[0]); })
+      .attr("y", barY).attr("height", barH).attr("fill", function (d) { return css(d[3]); }).attr("opacity", 0.28);
+    svg.append("g").selectAll("text").data(zones).join("text").attr("class", "lbl")
+      .attr("x", function (d) { return (x(d[0]) + x(d[1])) / 2; }).attr("y", barY + barH + 18).attr("text-anchor", "middle")
+      .style("font-weight", 700).style("fill", function (d) { return css(d[3]); }).text(function (d) { return d[2]; });
+    svg.append("line").attr("x1", x(0.5)).attr("x2", x(0.5)).attr("y1", barY - 6).attr("y2", barY + barH + 6)
+      .attr("stroke", css("--text")).attr("stroke-dasharray", "3 3").attr("opacity", 0.6);
+    svg.append("g").selectAll("text").data([0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]).join("text")
+      .attr("x", x).attr("y", H - 6).attr("text-anchor", "middle").text(pctf);
+    var y0 = barY + barH / 2, xs0 = x(r.s0), xs2 = x(r.s2);
+    if (Math.abs(xs2 - xs0) > 2) {
+      svg.append("line").attr("x1", xs0).attr("x2", xs2).attr("y1", y0).attr("y2", y0)
+        .attr("stroke", css("--text")).attr("stroke-width", 2).attr("marker-end", null).attr("opacity", 0.7);
+    }
+    svg.append("circle").attr("cx", xs0).attr("cy", y0).attr("r", 6).attr("fill", css("--surface")).attr("stroke", css("--text")).attr("stroke-width", 2);
+    svg.append("circle").attr("cx", xs2).attr("cy", y0).attr("r", 8).attr("fill", css(zoneVar(zone(r.p)))).attr("stroke", css("--surface")).attr("stroke-width", 2);
+    var above = xs2 < xs0 ? ["end", "start"] : ["start", "end"];
+    svg.append("text").attr("class", "lbl").attr("x", xs2).attr("y", barY - 10).attr("text-anchor", Math.abs(xs2 - xs0) < 60 ? "middle" : above[0])
+      .style("font-weight", 800).text("Scenario " + share(r.s2));
+    if (Math.abs(xs2 - xs0) >= 60) {
+      svg.append("text").attr("x", xs0).attr("y", barY - 10).attr("text-anchor", above[1]).text("2021 " + share(r.s0));
+    }
+  }
+
+  /* ---------- ticker ---------- */
+  function renderTicker() {
+    var picks = DATA.munis.filter(function (m) { return !m.hung; }).sort(function (a, b) { return b.p - a.p; }).slice(0, 8)
+      .concat(DATA.munis.filter(function (m) { return m.metro; }).sort(function (a, b) { return b.p - a.p; }).slice(0, 4));
+    var items = picks.map(function (m) {
+      return "<span><b>" + m.name + "</b> " + (m.hung ? "was hung after 2021; " : "kept a majority with " + m.lp + " on " + share(m.ts) + "; ") +
+        pctf(m.p) + " chance of a hung council in 2026.</span>";
+    }).join("");
+    document.getElementById("tickerRun").innerHTML = items + items;
+  }
+
+  /* ---------- tabs, theme, boot ---------- */
+  function switchView(id) {
+    document.querySelectorAll(".tabs button").forEach(function (b) { b.setAttribute("aria-selected", String(b.dataset.view === id)); });
+    document.querySelectorAll(".view").forEach(function (v) { v.classList.toggle("active", v.id === id); });
+    requestAnimationFrame(function () {
+      if (id === "v-trends") colourTrendMap(false);
+      if (id === "v-model") { drawRoc(); renderCurve(); }
+      if (id === "v-forecast") { renderProvBars(); renderDetail(); }
+      if (id === "v-sim") renderSim();
+    });
+  }
+  document.querySelectorAll(".tabs button").forEach(function (b) { b.addEventListener("click", function () { switchView(b.dataset.view); }); });
+  document.getElementById("themeBtn").addEventListener("click", function () {
+    var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("hcw-theme", next); } catch (e) {}
+    repaint();
+  });
+  function repaint() {
+    buildScales(); modelColours(); renderRegimeKey();
+    updateForecast(false); colourTrendMap(false); renderVTable(); drawRoc(); renderCurve(); renderSim();
+  }
+  window.addEventListener("resize", function () { renderProvBars(); drawSpark(byId.get(state.sel)); drawRegimeChart(); drawHungChart(); drawRoc(); renderCurve(); renderSim(); });
+  new MutationObserver(function () { repaint(); }).observe(root, { attributes: true, attributeFilter: ["data-theme"] });
+
+  buildScales(); modelColours(); renderRegimeKey(); renderVTable(); renderTicker();
+  document.getElementById("search").value = byId.get(state.sel).name;
+  updateForecast(false);
+  lastExpected = 0; updateForecast(true);
+})();
+</script>
+</body>
+</html>
