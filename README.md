@@ -52,7 +52,7 @@ Tuned XGBoost scored best in standard cross-validation but was beaten on future 
 ├── tests/                        Automated pytest suite for the validators
 │   ├── test_validate_panel.py
 │   └── test_validate_dashboard_data.py
-└── docs/software_engineering_log.md
+└── docs/validation_testing.md
 ```
 
 ## How to reproduce
